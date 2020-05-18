@@ -1228,7 +1228,7 @@ class Admin extends MY_Controller
             // 'email' => $email,
             'layanan' => $informasi
         );
-        $this->modelresponden->insert_data($data1, 'pemohon3');
+        $this->modelresponden->insert_data($data1, 'pelayanan');
         $data = array(
             'status' => 'yes'
         );
