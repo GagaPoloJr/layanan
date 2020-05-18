@@ -1198,6 +1198,13 @@ class Admin extends MY_Controller
 
     public function konfirmasi2($id)
     {
+
+        $data1['pemohon1'] = $this->db->query("SELECT (MAX(nolayanan)+1) as max from pelayanan")->result();
+        $data =   $data1['pemohon1'];
+        foreach ($data as $as) {
+            $nolayanan = $as->max;
+        }
+
         $data['coba'] = $this->db->query("select * from pemohon1 where idpemohon ='$id'")->result();
         $coba = $data['coba'];
 
