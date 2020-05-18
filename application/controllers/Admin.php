@@ -1061,20 +1061,6 @@ class Admin extends MY_Controller
         $this->load->view("list_data", $data);
     }
 
-    // public function load_csv(){
-    //     $this->load->database();
-
-    //     $data['csv'] = $this->db->query("select CSV as csv,COUNT(csv) as count from data_hujan group by csv")->result();
-    //     $csv = $data['csv'];
-    //     $data = [];
-
-    //     foreach($csv as $c){
-    //         $data['csv'][]=$c->csv;
-    //         $data['datacsv'][]=$c->count;
-    //     }
-    // $data['csv_data'] = json_encode($data);
-    // $this->load->view('list_data',$data);
-    // }
 
     public function upload_data()
     {
@@ -1194,7 +1180,7 @@ class Admin extends MY_Controller
     }
 
 
-
+    // konfirmasi pada admin data 0 rupiah
 
     public function konfirmasi2($id)
     {
