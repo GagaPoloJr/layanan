@@ -91,7 +91,7 @@
             <div  data-aos="fade-up"  class="col-lg-4 col-md-4">
                 <div id="kotak-info" class="info-panel text-center">
                     <a class="icon-link" href="<?php echo base_url() . 'page/form' ?>">
-                        <img alt="berbayar" id="berbayar" href="www.google.com" class="icon" src="https://img.icons8.com/wired/60/000000/pay-wall.png">
+                        <img alt="berbayar" id="berbayar" class="icon" src="https://img.icons8.com/wired/60/000000/pay-wall.png">
                         <h4>Berbayar</h4>
                         <p>Layanan Informasi Berbayar</p>
                     </a>
