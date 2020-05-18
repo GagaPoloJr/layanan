@@ -1,0 +1,5 @@
+---
+deployment:
+ tasks:
+ - export DEPLOYPATH=/home/iklimjat/layanan.iklimjateng.com
+ - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
