@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Admin</title>
@@ -29,7 +29,6 @@
   <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css' ?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-   <link rel="icon" href="<?php echo base_url() . 'assets/img/logo.png' ?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -69,7 +68,9 @@
                         ?>
                           <tr>
                             <td><?php echo  $h->id; ?></td>
-                            <td><?php echo  $h->Bulan; ?></td>
+                            <td><?php $this->load->helper('bulan_helper');
+                                echo bulan($h->Bulan) ?></td>
+                            <!-- <td><?php echo  $h->Bulan; ?></td> -->
                             <td><?php echo  $h->Tahun; ?></td>
                             <td>Tersedia</td>
                             <td>

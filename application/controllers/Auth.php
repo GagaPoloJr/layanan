@@ -16,7 +16,7 @@ class Auth extends CI_Controller
     public function login()
     {
         $Username = $this->input->post('Username');
-        $Password = $this->input->post('Password');
+        $Password = md5($this->input->post('Password'));
         $user = $this->LoginModel->get($Username);
 
         if (empty($user)) {
