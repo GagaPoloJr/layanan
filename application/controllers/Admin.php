@@ -14,6 +14,7 @@ class Admin extends MY_Controller
         $this->load->model('ProfileModel');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        
         // $this->load->library('mypdf');
     }
 
@@ -1241,39 +1242,56 @@ class Admin extends MY_Controller
 
     public function edit_data_berbayar()
     {
-        $id = $this->input->post('idpemohon');
-        $nama = $this->input->post('nama');
-        $alamat = $this->input->post('alamat');
-        $nohp = $this->input->post('nohp');
-        $instansi = $this->input->post('instansi');
-        $email = $this->input->post('email');
-        $informasi = $this->input->post('informasi');
+        $validation = $this->form_validation;
+        $validation->set_rules('nama', 'Nama', 'required|regex_match[/^[a-zA-Z ]+$/]|min_length[4]|max_length[30]|trim');
+        $validation->set_rules('nohp', 'Nomor HP', 'required|numeric|min_length[8]|trim');
+        $validation->set_rules('alamat', 'Alamat', 'required|min_length[8]|trim');
+        $validation->set_rules('email', 'Email', 'required|valid_email|trim');
+        $validation->set_rules('instansi', 'Instansi', 'required|trim');
+        $validation->set_rules('informasi', 'Informasi', 'required|min_length[8]|trim');
+        $validation->set_message('required', '%s masih kosong, silahkan isi');
+        $validation->set_error_delimiters('<span class="help-block">', '</span>');
 
-        $data = array(
-            'nama' => $nama,
-            'alamat' => $alamat,
-            'nohp' => $nohp,
-            'instansi' => $instansi,
-            'email' => $email,
-            'informasi' => $informasi
-        );
 
-        $where = array(
-            'idpemohon' => $id
-        );
-        $this->modelresponden->update_data($where, $data, 'pemohonbmkg1');
-        $this->session->set_flashdata('warning', 'Data Berhasil diubah');
-        redirect(base_url() . 'admin/list_data_berbayar');
+        $id = html_escape($this->input->post('idpemohon'));
+        $nama =  html_escape($this->input->post('nama'));
+        $alamat =  html_escape($this->input->post('alamat'));
+        $nohp =  html_escape($this->input->post('nohp'));
+        $instansi =  html_escape($this->input->post('instansi'));
+        $email =  html_escape($this->input->post('email'));
+        $informasi =  html_escape($this->input->post('informasi'));
+        if ($validation->run() == FALSE) {
+            $this->session->set_flashdata('danger', 'Data Gagal di ubah');
+            $this->load->view("edit_list_data");
+        }
+        else{
+            $data = array(
+                'nama' => $nama,
+                'alamat' => $alamat,
+                'nohp' => $nohp,
+                'instansi' => $instansi,
+                'email' => $email,
+                'informasi' => $informasi
+            );
+    
+            $where = array(
+                'idpemohon' => $id
+            );
+            $this->modelresponden->update_data($where, $data, 'pemohonbmkg1');
+            $this->session->set_flashdata('warning', 'Data Berhasil diubah');
+            redirect(base_url() . 'admin/list_data_berbayar');
+        }
+     
     }
     public function edit_data_0()
     {
-        $id = $this->input->post('idpemohon');
-        $nama = $this->input->post('nama');
-        $alamat = $this->input->post('alamat');
-        $nohp = $this->input->post('nohp');
-        $instansi = $this->input->post('instansi');
-        $email = $this->input->post('email');
-        $informasi = $this->input->post('informasi');
+        $id = html_escape($this->input->post('idpemohon'));
+        $nama = html_escape($this->input->post('nama'));
+        $alamat = html_escape($this->input->post('alamat'));
+        $nohp = html_escape($this->input->post('nohp'));
+        $instansi = html_escape($this->input->post('instansi'));
+        $email = html_escape($this->input->post('email'));
+        $informasi = html_escape($this->input->post('informasi'));
 
         $data = array(
             'nama' => $nama,
