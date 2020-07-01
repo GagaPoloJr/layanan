@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
@@ -32,7 +32,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-     <link rel="icon" href="<?php echo base_url() . 'assets/img/logo.png' ?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -67,7 +66,7 @@
 
         <!-- /.content-wrapper -->
         <footer class="main-footer fixed-bottom">
-            <strong>Copyright &copy; Turu Teams
+            <strong>Copyright &copy; BMKG Jawa Tengah
                 All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 0.0.1
