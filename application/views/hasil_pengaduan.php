@@ -43,7 +43,7 @@
             <div class="container-fluid">
                 <div class="col mb-2">
                     <div class="row-sm-6">
-                        <h1 class="m-0 text-dark">Hasil Survey Sistem Kepuasan Masyarakat</h1>
+                        <h1 class="m-0 text-dark">Hasil Pengaduan Masyarakat</h1>
                     </div>
                 </div>
             </div>
