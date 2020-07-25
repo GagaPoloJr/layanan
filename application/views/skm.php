@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo base_url() . 'assets/css/gaya.css' ?>">
     <title>Indeks Kepuasan Masyarakat</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,11 +60,18 @@
                 </div>
                 <div class="card-body">
                     <form action="<?php echo base_url() . 'page/tambah_responden' ?>" method="post">
-                        <div class="form-group row">
+                    <?php if ($this->session->flashdata('danger')) : ?>
+                                <div data-aos="fade-up" class="alert alert-danger" role="alert">
+                                    <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true" class="fa fa-times"></span></button>
+                                    <?php echo $this->session->flashdata('danger'); ?>
+                                </div>
+                            <?php endif; ?>
+                        <div class="form-group row <?= form_error('Email') ? 'has-error' : null ?>">
                             <label for="InputEmail" class="col-sm-2 col-form-label">Alamat Email: *</label>
                             <div class="col-sm-10">
                                 <input name="Email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Masukkan email" required>
                                 <small id="emailHelp" class="form-text text-muted">Kami tidak akan pernah memberikan email anda kepada siapapun</small>
+                                <?php echo form_error('Email') ?>
                             </div>
                         </div>
                         <b>1. DATA RESPONDEN</b>
