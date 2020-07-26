@@ -231,7 +231,8 @@ class Page extends CI_Controller
         $validation->set_rules('nama', 'Nama', 'required|regex_match[/^[a-zA-Z ]+$/]|min_length[4]|max_length[30]|trim');
         $validation->set_rules('nohp', 'Nomor HP', 'required|numeric|min_length[8]|trim');
         $validation->set_rules('alamat', 'Alamat', 'required|min_length[8]|trim');
-        $validation->set_rules('email', 'Email', 'required|valid_email|trim');
+        $validation->set_rules('email', 'Email', 'trim');
+        // $validation->set_rules('email', 'Email', 'required|valid_email|trim');
         $validation->set_rules('instansi', 'Instansi', 'required|trim');
         $validation->set_rules('informasi', 'Informasi', 'required|min_length[8]|trim');
         $validation->set_rules($simpan->rules());
@@ -255,11 +256,17 @@ class Page extends CI_Controller
         $validation->set_rules('nama', 'Nama', 'required|regex_match[/^[a-zA-Z ]+$/]|min_length[4]|max_length[30]|trim');
         $validation->set_rules('nohp', 'Nomor HP', 'required|numeric|min_length[8]|trim');
         $validation->set_rules('alamat', 'Alamat', 'required|min_length[8]|trim');
-        $validation->set_rules('email', 'Email', 'required|valid_email|trim');
+        // $validation->set_rules('email', 'Email', 'required|valid_email|trim');
+        $validation->set_rules('email', 'Email', 'trim');
+
         $validation->set_rules('instansi', 'Instansi', 'required|trim');
         $validation->set_rules('informasi', 'Informasi', 'required|min_length[8]|trim');
         $validation->set_rules($dataPDF->rules());
         $validation->set_message('required', '%s masih kosong, silahkan isi');
+        if (empty($_FILES['PDF']['name']))
+        {
+            $validation->set_rules('PDF', 'File pdf', 'required');
+        }
         $validation->set_error_delimiters('<span class="help-block">', '</span>');
         if ($validation->run() == FALSE) {
             $this->session->set_flashdata('danger', 'Data Gagal ditambahkan');
@@ -281,7 +288,9 @@ class Page extends CI_Controller
         $validation->set_rules('nama', 'Nama', 'required|regex_match[/^[a-zA-Z ]+$/]|min_length[4]|max_length[30]|trim');
         $validation->set_rules('nohp', 'Nomor HP', 'required|numeric|min_length[8]|trim');
         $validation->set_rules('alamat', 'Alamat', 'required|min_length[8]|trim');
-        $validation->set_rules('email', 'Email', 'required|valid_email|trim');
+        // $validation->set_rules('email', 'Email', 'required|valid_email|trim');
+        $validation->set_rules('email', 'Email', 'trim');
+
         $validation->set_rules('instansi', 'Instansi', 'required|trim');
         $validation->set_rules('informasi', 'Informasi', 'required|min_length[8]|trim');
         $validation->set_rules($dataPDF->rules());
@@ -348,18 +357,26 @@ class Page extends CI_Controller
 
     public function search()
     {
-
-
+        $validation = $this->form_validation;
+        $validation->set_rules('keyword', 'Keyword', 'required|numeric|trim');
         $keyword = $this->input->post('keyword');
+        $validation->set_message('required', '%s masih kosong, silahkan isi');
+        $validation->set_error_delimiters('<span class="help-block">', '</span>');
+
+        
+        if ($validation->run() == FALSE) {
+            // redirect(base_url('Page/tracking'));
+            $this->load->view("tracking");
+
+        } else {
         $data['pencarian'] = $this->modellayanan->get_pencarian($keyword);
         $this->load->view('search', $data);
+        }
     }
     public function tracking()
     {
-        $this->load->view('template/header');
 
         $this->load->view('tracking');
-        $this->load->view('template/footer');
     }
     public function redirect()
     {

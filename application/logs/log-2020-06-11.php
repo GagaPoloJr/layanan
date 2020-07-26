@@ -1,0 +1,39 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-06-11 14:14:51 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
+ERROR - 2020-06-11 14:14:58 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:14:58 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:14:58 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 19:15:35 --> Severity: Notice --> Undefined variable: idpemohon1 C:\xampp\htdocs\layanan\application\views\formzero1.php 47
+ERROR - 2020-06-11 14:15:35 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
+ERROR - 2020-06-11 14:17:43 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
+ERROR - 2020-06-11 14:17:47 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:17:47 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:17:47 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:06 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:06 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:06 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:06 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:25 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:25 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:25 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:41 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:41 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:18:41 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:14 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:14 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:14 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:25 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:25 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:25 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:19:41 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
+ERROR - 2020-06-11 14:20:08 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:08 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:10 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:10 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:10 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:10 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:11 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:11 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:11 --> 404 Page Not Found: Page/js
+ERROR - 2020-06-11 14:20:20 --> 404 Page Not Found: Js/jquery-3.4.1.min.js

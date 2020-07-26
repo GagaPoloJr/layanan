@@ -1263,11 +1263,11 @@ class Admin extends MY_Controller
         $instansi =  html_escape($this->input->post('instansi'));
         $email =  html_escape($this->input->post('email'));
         $informasi =  html_escape($this->input->post('informasi'));
-        if ($validation->run() == FALSE) {
-            $this->session->set_flashdata('danger', 'Data Gagal di ubah');
-            $this->load->view("edit_list_data");
-        }
-        else{
+        // if ($validation->run() == FALSE) {
+        //     $this->session->set_flashdata('danger', 'Data Gagal di ubah');
+        //     $this->load->view("edit_list_data");
+        // }
+        // else{
             $data = array(
                 'nama' => $nama,
                 'alamat' => $alamat,
@@ -1283,7 +1283,7 @@ class Admin extends MY_Controller
             $this->modelresponden->update_data($where, $data, 'pemohonbmkg1');
             $this->session->set_flashdata('warning', 'Data Berhasil diubah');
             redirect(base_url() . 'admin/list_data_berbayar');
-        }
+        // }
      
     }
     public function edit_data_0()

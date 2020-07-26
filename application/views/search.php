@@ -4,7 +4,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hasil Tracking</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
@@ -30,7 +30,11 @@
         </div>
         <form method="POST">
             <?php foreach ($pencarian as $tracking) { ?>
-
+                <?php if ($tracking == ""){
+                    echo "maaf data yang anda cari tidak dapat ditemukan"; 
+                }
+                else{
+                    ?>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row justify-content-center">
                         <table class="table table-hover">
@@ -100,6 +104,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                    <?php   } ?>
+                        
                     <?php   } ?>
 
                     </div>

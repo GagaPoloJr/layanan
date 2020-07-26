@@ -4,7 +4,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Form 0 Rupiah</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
@@ -40,14 +40,14 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="card-body">
                         <?php if ($this->session->flashdata('danger')) : ?>
-                                <div data-aos="fade-up" class="alert alert-danger" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true" class="fa fa-times"></span></button>
                                     <?php echo $this->session->flashdata('danger'); ?>
                                 </div>
                             <?php endif; ?>
                             <div class="form-group">
                                 <!--<label for="idpemohon">ID</label>-->
-                                <input type="text"" name=" idpemohon" id="id" value="<?php echo $idpemohon1;?>" class="form-control" placeholder="ID Anda" hidden>
+                                <input type="text" name=" idpemohon" id="id" value="<?php echo $idpemohon1;?>" class="form-control" placeholder="ID Anda" hidden>
                             </div>
                             <div class="form-group  <?= form_error('nama') ? 'has-error' : null ?>">
                                 <label for="nama">Nama Pemohon</label>
@@ -61,6 +61,7 @@
                             </div>
                             <div class="form-group  <?= form_error('email') ? 'has-error' : null ?>">
                                 <label for="email">Email Pemohon</label>
+                                <p style="color: grey; font-size: 14px;">*Email tidak wajib diisi</p> 
                                 <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan email anda">
                                 <?php echo form_error('email') ?>
                             </div>
