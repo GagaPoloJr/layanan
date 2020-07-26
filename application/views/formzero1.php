@@ -58,6 +58,7 @@
                             </div>
                             <div class="form-group  <?= form_error('email') ? 'has-error' : null ?>">
                                 <label for="email">Email Pemohon</label>
+                                <p style="color: grey; font-size: 14px;">*Email tidak wajib diisi</p> 
                                 <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan email anda">
                                 <?php echo form_error('email') ?>
                             </div>

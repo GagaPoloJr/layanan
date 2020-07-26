@@ -56,42 +56,52 @@
                                     Kembali</a>
                             </div>
                             <div class="card-body">
-                                <?php if ($this->session->flashdata('success')) : ?>
-                                    <div class="alert alert-success" role="alert">
-                                        <?php echo $this->session->flashdata('success'); ?>
-                                    </div>
-                                <?php endif; ?>
+                            <?php if ($this->session->flashdata('danger')) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true" class="fa fa-times"></span></button>
+                                    <?php echo $this->session->flashdata('danger'); ?>
+                                </div>
+                            <?php endif; ?>
                                 <?php foreach ($pemohon as $p) { ?>
 
                                     <form action="<?php echo base_url() . 'admin/edit_data_berbayar' ?>" method="post">
                                         <div class="form-group">
                                             <label for="idpemohon">ID</label>
-                                            <input type="text"" name=" idpemohon" id="id" class="form-control" value="<?php echo $p->idpemohon; ?>" placeholder="ID Anda" readonly>
+                                            <input type="text" name=" idpemohon" id="id" class="form-control" value="<?php echo $p->idpemohon; ?>" placeholder="ID Anda" readonly>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group">  <?= form_error('nama') ? 'has-error' : null ?>
                                             <label for="nama">Nama Pemohon</label>
                                             <input type="text" name="nama" id="nama" class="form-control" value="<?php echo $p->nama; ?>" placeholder="Nama Lengkap Anda...">
+                                             <?php echo form_error('nama') ?>
+
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group <?= form_error('alamat') ? 'has-error' : null ?>">
                                             <label for="alamat">Alamat Pemohon</label>
                                             <input type="text" name="alamat" id="alamat" class="form-control" value="<?php echo $p->alamat; ?>" placeholder="Alamat Lengkap Anda...">
+                                             <?php echo form_error('alamat') ?>
+                                       
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group">  <?= form_error('email') ? 'has-error' : null ?>
                                             <label for="email">Email Pemohon</label>
                                             <input type="text" name="email" id="email" class="form-control" value="<?php echo $p->email; ?>" placeholder="Masukkan email anda">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group  <?= form_error('instansi') ? 'has-error' : null ?>">
                                             <label for="instansi">Asal Instansi Pemohon</label>
                                             <input type="text" name="instansi" id="instansi" class="form-control" value="<?php echo $p->instansi; ?>" placeholder="Asal instansi anda">
+                                              <?php echo form_error('instansi') ?>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group  <?= form_error('nohp') ? 'has-error' : null ?>">
                                             <label for="nohp">Nomor HP Pemohon</label>
                                             <input type="text" name="nohp" id="hp" class="form-control" value="<?php echo $p->nohp; ?>" placeholder="Masukkan no. HP anda">
+                                            <?php echo form_error('nohp') ?>
+                                        
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group  <?= form_error('informasi') ? 'has-error' : null ?>">
 
                                             <label for="informasi">Informasi yang dibutuhkan <p style="color: grey; font-size: 14px;">*Contoh : informasi curah hujan di kota semarang daerah simpang lima tanggal 20 januari 2020</p> </label>
                                             <textarea name="informasi" type="text" class="form-control" id="informasi" placeholder="Informasi yang dibutuhkan"><?php echo $p->informasi; ?></textarea>
+                                            <?php echo form_error('informasi') ?>
+
                                         </div>
                                     <?php  } ?>
                                     <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
@@ -105,7 +115,7 @@
 
                     <!-- /.content-wrapper -->
                     <footer class="main-footer fixed-bottom">
-                        <strong>Copyright &copy; Turu Teams
+                        <strong>Copyright &copy; BMKG Jawa Tengah
                             All rights reserved.
                             <div class="float-right d-none d-sm-inline-block">
                                 <b>Version</b> 0.0.1

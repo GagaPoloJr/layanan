@@ -40,3 +40,5 @@ ERROR - 2020-05-18 08:48:00 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
 ERROR - 2020-05-18 08:48:02 --> 404 Page Not Found: Page/js
 ERROR - 2020-05-18 08:48:02 --> 404 Page Not Found: Page/js
 ERROR - 2020-05-18 08:48:02 --> 404 Page Not Found: Page/js
+ERROR - 2020-05-18 09:44:10 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
+ERROR - 2020-05-18 09:58:45 --> 404 Page Not Found: Js/jquery-3.4.1.min.js
