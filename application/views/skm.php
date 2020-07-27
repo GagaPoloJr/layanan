@@ -59,7 +59,7 @@
                     <small>* Wajib Diisi</small>
                 </div>
                 <div class="card-body">
-                    <form action="<?php echo base_url() . 'page/tambah_responden' ?>" method="post">
+                <form action="<?php echo base_url() . 'page/tambah_responden' ?>" method="post">
                     <?php if ($this->session->flashdata('danger')) : ?>
                                 <div data-aos="fade-up" class="alert alert-danger" role="alert">
                                     <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true" class="fa fa-times"></span></button>
@@ -76,12 +76,12 @@
                         </div>
                         <b>1. DATA RESPONDEN</b>
                         <small class="row col-sm-10">Harap Mengisi Data Responden Dengan Benar</small>
-                        <fieldset class="form-group">
+                        <fieldset class="form-group <?= form_error('Umur') ? 'has-error' : null ?>">
                             <div class="row">
                                 <legend class="col-form-label col-sm-2 pt-0">Umur: *</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Umur" id="gridRadios1" value="Dibawah 15">
+                                        <input class="custom-control-input" type="radio" name="Umur" id="gridRadios1" value="Dibawah 15">
                                         <label class="custom-control-label" for="gridRadios1">
                                             Dibawah 15 Tahun
                                         </label>
@@ -110,15 +110,16 @@
                                             Diatas 46 tahun
                                         </label>
                                     </div>
+                                    <?php echo form_error('Umur') ?>
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset class="form-group">
+                        <fieldset class="form-group <?= form_error('Jenis_kelamin') ? 'has-error' : null ?>">
                             <div class="row">
                                 <legend class="col-form-label col-sm-2 pt-0"> Jenis Kelamin: *</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jenis_kelamin" id="lakilaki" value="Laki-Laki">
+                                        <input class="custom-control-input" type="radio" name="Jenis_kelamin" id="lakilaki" value="Laki-Laki">
                                         <label class="custom-control-label" for="lakilaki">
                                             Laki-Laki
                                         </label>
@@ -129,15 +130,16 @@
                                             Perempuan
                                         </label>
                                     </div>
+                                    <?php echo form_error('Jenis_kelamin') ?>
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset class="form-group">
+                        <fieldset class="form-group <?= form_error('Pendidikan') ? 'has-error' : null ?>">
                             <div class="row">
                                 <legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir: *</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Pendidikan" id="pendidikan1" value="SD ke bawah">
+                                        <input class="custom-control-input" type="radio" name="Pendidikan" id="pendidikan1" value="SD ke bawah">
                                         <label class="custom-control-label" for="pendidikan1">
                                             SD ke Bawah
                                         </label>
@@ -172,15 +174,16 @@
                                             S2 ke-atas
                                         </label>
                                     </div>
+                                    <?php echo form_error('Pendidikan') ?>
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset class="form-group">
+                        <fieldset class="form-group <?= form_error('Pekerjaan') ? 'has-error' : null ?>">
                             <div class="row">
                                 <legend class="col-form-label col-sm-2 pt-0">Pekerjaan Utama: *</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Pekerjaan" id="Pekerjaan1" value="Pelajar/Mahasiswa">
+                                        <input class="custom-control-input" type="radio" name="Pekerjaan" id="Pekerjaan1" value="Pelajar/Mahasiswa">
                                         <label class="custom-control-label" for="Pekerjaan1">
                                             Pelajar/Mahasiswa
                                         </label>
@@ -221,13 +224,14 @@
                                             Lainnya
                                         </label>
                                     </div>
+                                    <?php echo form_error('Pekerjaan') ?>
                                 </div>
                             </div>
                         </fieldset>
                         <br>
                         <br>
                         <b>2. JENIS PELAYANAN YANG RESPONDEN TERIMA</b>
-                        <small class="row col-sm-10">Isi Sesuai Jenis Layanan Yang Responden Terima (Bisa Lebih Dari Satu)</small>
+                        <small class="row col-sm-10 ">Isi Sesuai Jenis Layanan Yang Responden Terima (Bisa Lebih Dari Satu)</small>
                         <div class="form-group">
                             <label>Meteorologi</label>
                             <div class="form-check">
@@ -370,19 +374,21 @@
                                 <input class="form-check-input" type="checkbox" name="Pelayanan[]" value="Lainnya">
                                 <label class="form-check-label">Lainnya</label>
                             </div>
+                            <!-- <?php echo form_error('Pelayanan') ?> -->
+                        </div>
                             <br>
                             <br>
                             <b>3. PENDAPAT RESPONDEN TENTANG PELAYANAN PUBLIK</b>
                             <small class="row col-sm-10">Isilah Sesuai Dengan Bagaimana Kualitas Pelayanan dan Harapan Responden Terhadap BMKG</small>
                             <br>
                             <b class="info-box bg-success">A. Persyaratan pelayanan adalah syarat yang harus dipenuhi dalam pengurusan suatu jenis pelayanan, baik persyaratan teknis maupun administratif.</b>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi1a') ? 'has-error' : null ?> <?= form_error('Jopsi1b') ? 'has-error' : null ?>">
                                 <legend class="row col-sm-10">1. Bagaimana pendapat Saudara tentang Persyaratan pelayanan terbuka dan jelas di Staklim Semarang.</legend>
                                 <div class="row">
                                     <div class="col-md-6 ">
                                         <label>Kualitas Pelayanan</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi1a" id="pertanyaan1" value="Tidak Setuju">
+                                            <input class="custom-control-input" type="radio" name="Jopsi1a" id="pertanyaan1" value="Tidak Setuju">
                                             <label class="custom-control-label" for="pertanyaan1">
                                                 Tidak Setuju
                                             </label>
@@ -405,11 +411,12 @@
                                                 Sangat Setuju
                                             </label>
                                         </div>
+                                    <?php echo form_error('Jopsi1a') ?>
                                     </div>
-                                    <div class="col-md-6 ">
+                                    <div class="col-md-6">
                                         <label>Harapan Konsumen</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi1b" id="pertanyaan5" value="Tidak Penting">
+                                            <input class="custom-control-input" type="radio" name="Jopsi1b" id="pertanyaan5" value="Tidak Penting">
                                             <label class="custom-control-label" for="pertanyaan5">
                                                 Tidak Penting
                                             </label>
@@ -432,17 +439,18 @@
                                                 Sangat Penting
                                             </label>
                                         </div>
+                                    <?php echo form_error('Jopsi1b') ?>
                                     </div>
                                 </div>
                             </fieldset>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi2a') ? 'has-error' : null ?> <?= form_error('Jopsi2b') ? 'has-error' : null ?>">
                                 <div>
                                     <legend class="row col-sm-10">2. Bagaimana pendapat Saudara tentang Persyaratan pelayanan mudah dipenuhi di Staklim Semarang</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi2a" id="pertanyaan9" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi2a" id="pertanyaan9" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan9">
                                                     Tidak Setuju
                                                 </label>
@@ -465,11 +473,12 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                        <?php echo form_error('Jopsi2a') ?>
                                         </div>
                                         <div class="col-md-6 ">
                                             <label>Harapan Konsumen</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi2b" id="pertanyaan13" value="Tidak Penting">
+                                                <input class="custom-control-input" type="radio" name="Jopsi2b" id="pertanyaan13" value="Tidak Penting">
                                                 <label class="custom-control-label" for="pertanyaan13">
                                                     Tidak Penting
                                                 </label>
@@ -492,17 +501,18 @@
                                                     Sangat Penting
                                                 </label>
                                             </div>
+                                        <?php echo form_error('Jopsi2b') ?>
                                         </div>
                             </fieldset>
                             <b class="info-box bg-success">B. Informasi yang diperoleh</b>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi3a') ? 'has-error' : null ?> <?= form_error('Jopsi3b') ? 'has-error' : null ?>">
                                 <div>
                                     <legend class="row col-sm-10">3. Bagaimana pendapat Saudara tentang Informasi yang diperoleh dibutuhkan dalam kehidupan sehari-hari</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi3a" id="pertanyaan17" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi3a" id="pertanyaan17" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan17">
                                                     Tidak Setuju
                                                 </label>
@@ -525,11 +535,12 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                        <?php echo form_error('Jopsi3a') ?>
                                         </div>
                                         <div class="col-md-6 ">
                                             <label>Harapan Konsumen</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi3b" id="pertanyaan21" value="Tidak Penting">
+                                                <input class="custom-control-input" type="radio" name="Jopsi3b" id="pertanyaan21" value="Tidak Penting">
                                                 <label class="custom-control-label" for="pertanyaan21">
                                                     Tidak Penting
                                                 </label>
@@ -552,16 +563,17 @@
                                                     Sangat Penting
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi3b') ?>
                                         </div>
                             </fieldset>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi4a') ? 'has-error' : null ?> <?= form_error('Jopsi4b') ? 'has-error' : null ?>">
                                 <div>
                                     <legend class="row col-sm-10">4. Bagaimana pendapat Saudara tentang informasi yang diperoleh mudah diakses</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi4a" id="pertanyaan25" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi4a" id="pertanyaan25" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan25">
                                                     Tidak Setuju
                                                 </label>
@@ -584,11 +596,12 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi4a') ?>
                                         </div>
                                         <div class="col-md-6 ">
                                             <label>Harapan Konsumen</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi4b" id="pertanyaan29" value="Tidak Penting">
+                                                <input class="custom-control-input" type="radio" name="Jopsi4b" id="pertanyaan29" value="Tidak Penting">
                                                 <label class="custom-control-label" for="pertanyaan29">
                                                     Tidak Penting
                                                 </label>
@@ -611,17 +624,18 @@
                                                     Sangat Penting
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi4b') ?>
                                         </div>
                                     </div>
                             </fieldset>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi5a') ? 'has-error' : null ?> <?= form_error('Jopsi5b') ? 'has-error' : null ?>">
                                 <div>
                                     <legend class="row col-sm-10">5. Bagaimana pendapat Saudara tentang Informasi yang diperoleh mudah dipahami</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi5a" id="pertanyaan33" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi5a" id="pertanyaan33" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan33">
                                                     Tidak Setuju
                                                 </label>
@@ -644,11 +658,12 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi5a') ?>
                                         </div>
                                         <div class="col-md-6 ">
                                             <label>Harapan Konsumen</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi5b" id="pertanyaan37" value="Tidak Penting">
+                                                <input class="custom-control-input" type="radio" name="Jopsi5b" id="pertanyaan37" value="Tidak Penting">
                                                 <label class="custom-control-label" for="pertanyaan37">
                                                     Tidak Penting
                                                 </label>
@@ -671,17 +686,18 @@
                                                     Sangat Penting
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi5b') ?>
                                         </div>
                                     </div>
                             </fieldset>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi6a') ? 'has-error' : null ?> <?= form_error('Jopsi6b') ? 'has-error' : null ?>">
                                 <div>
                                     <legend class="row col-sm-10">6. Bagaimana pendapat Saudara tentang Informasi yang diperoleh akurat</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi6a" id="pertanyaan41" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi6a" id="pertanyaan41" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan41">
                                                     Tidak Setuju
                                                 </label>
@@ -704,11 +720,12 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi6a') ?>
                                         </div>
                                         <div class="col-md-6 ">
                                             <label>Harapan Konsumen</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi6b" id="pertanyaan45" value="Tidak Penting">
+                                                <input class="custom-control-input" type="radio" name="Jopsi6b" id="pertanyaan45" value="Tidak Penting">
                                                 <label class="custom-control-label" for="pertanyaan45">
                                                     Tidak Penting
                                                 </label>
@@ -731,17 +748,18 @@
                                                     Sangat Penting
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi6b') ?>
                                         </div>
                                     </div>
                             </fieldset>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi7a') ? 'has-error' : null ?> <?= form_error('Jopsi7b') ? 'has-error' : null ?>">
                                 <div>
                                     <legend class="row col-sm-10">7. Bagaimana pendapat Saudara tentang Informasi yang diperoleh ketersediaan jenis data dan informasi beragam</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi7a" id="pertanyaan49" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi7a" id="pertanyaan49" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan49">
                                                     Tidak Setuju
                                                 </label>
@@ -764,11 +782,12 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi7a') ?>
                                         </div>
                                         <div class="col-md-6 ">
                                             <label>Harapan Konsumen</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi7b" id="pertanyaan53" value="Tidak Penting">
+                                                <input class="custom-control-input" type="radio" name="Jopsi7b" id="pertanyaan53" value="Tidak Penting">
                                                 <label class="custom-control-label" for="pertanyaan53">
                                                     Tidak Penting
                                                 </label>
@@ -791,17 +810,18 @@
                                                     Sangat Penting
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi7b') ?>
                                         </div>
                                     </div>
                             </fieldset>
                             <b class="info-box bg-success">C. Prosedur pelayanan adalah tata cara pelayanan yang dibakukan bagi penerima pelayanan</b>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi8') ? 'has-error' : null ?>">
                                 <legend class="row col-sm-10">8. Bagaimana pendapat Saudara tentang Prosedur pelayanan alur pelayanan jelas dan sederhana di staklim semarang</legend>
                                 <div class="row">
                                     <div class="col-md-6 ">
                                         <label>Kualitas Pelayanan</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi8" id="pertanyaan57" value="Tidak Setuju">
+                                            <input class="custom-control-input" type="radio" name="Jopsi8" id="pertanyaan57" value="Tidak Setuju">
                                             <label class="custom-control-label" for="pertanyaan57">
                                                 Tidak Setuju
                                             </label>
@@ -824,17 +844,18 @@
                                                 Sangat Setuju
                                             </label>
                                         </div>
+                                        <?php echo form_error('Jopsi8') ?>
                                     </div>
                                 </div>
                             </fieldset>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group <?= form_error('Jopsi9') ? 'has-error' : null ?> ">
                                 <div>
                                     <legend class="row col-sm-10">9. Bagaimana pendapat Saudara tentang sistem dan prosedur pelayanan masih berpeluang menimbulkan KKN di Staklim Semarang</legend>
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <label>Kualitas Pelayanan</label>
                                             <div class="custom-control custom-radio">
-                                                <input required class="custom-control-input" type="radio" name="Jopsi9" id="pertanyaan61" value="Tidak Setuju">
+                                                <input class="custom-control-input" type="radio" name="Jopsi9" id="pertanyaan61" value="Tidak Setuju">
                                                 <label class="custom-control-label" for="pertanyaan61">
                                                     Tidak Setuju
                                                 </label>
@@ -857,676 +878,707 @@
                                                     Sangat Setuju
                                                 </label>
                                             </div>
+                                            <?php echo form_error('Jopsi9') ?>
                                         </div>
                                     </div>
                                 </div>
-                        </div>
-                        </fieldset>
-                        <b class="info-box bg-success">D. Waktu pelayanan adalah jangka waktu yang diperlukan untuk menyelesaikan seluruh proses pelayanan</b>
-                        <fieldset class="form-group">
-                            <div>
-                                <legend class="row col-sm-10">10. Bagaimana pendapat Saudara tentang Informasi target waktu penyelesaian pelayanan jelas di Staklim Semarang</legend>
+                            </fieldset>
+                            <b class="info-box bg-success">D. Waktu pelayanan adalah jangka waktu yang diperlukan untuk menyelesaikan seluruh proses pelayanan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi10a') ? 'has-error' : null ?> <?= form_error('Jopsi10b') ? 'has-error' : null ?>">
+                                <div>
+                                    <legend class="row col-sm-10">10. Bagaimana pendapat Saudara tentang Informasi target waktu penyelesaian pelayanan jelas di Staklim Semarang</legend>
+                                    <div class="row">
+                                        <div class="col-md-6 ">
+                                            <label>Kualitas Pelayanan</label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan65" value="Tidak Setuju">
+                                                <label class="custom-control-label" for="pertanyaan65">
+                                                    Tidak Setuju
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan66" value="Kurang Setuju">
+                                                <label class="custom-control-label" for="pertanyaan66">
+                                                    Kurang Setuju
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan67" value="Setuju">
+                                                <label class="custom-control-label" for="pertanyaan67">
+                                                    Setuju
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan68" value="Sangat Setuju">
+                                                <label class="custom-control-label" for="pertanyaan68">
+                                                    Sangat Setuju
+                                                </label>
+                                            </div>
+                                            <?php echo form_error('Jopsi10a') ?>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                            <label>Harapan Konsumen</label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan69" value="Tidak Penting">
+                                                <label class="custom-control-label" for="pertanyaan69">
+                                                    Tidak Penting
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan70" value="Kurang Penting">
+                                                <label class="custom-control-label" for="pertanyaan70">
+                                                    Kurang Penting
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan71" value="Penting">
+                                                <label class="custom-control-label" for="pertanyaan71">
+                                                    Penting
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan72" value="Sangat Penting">
+                                                <label class="custom-control-label" for="pertanyaan72">
+                                                    Sangat Penting
+                                                </label>
+                                            </div>
+                                            <?php echo form_error('Jopsi10b') ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group <?= form_error('Jopsi11a') ? 'has-error' : null ?> <?= form_error('Jopsi11b') ? 'has-error' : null ?>">
+                                <div>
+                                    <legend class="row col-sm-10">11. Bagaimana pendapat Saudara tentang Penyelesaian pelayanan sesuai target waktu di Staklim Semarang</legend>
+                                    <div class="row">
+                                        <div class="col-md-6 ">
+                                            <label>Kualitas Pelayanan</label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan73" value="Tidak Setuju">
+                                                <label class="custom-control-label" for="pertanyaan73">
+                                                    Tidak Setuju
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan74" value="Kurang Setuju">
+                                                <label class="custom-control-label" for="pertanyaan74">
+                                                    Kurang Setuju
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan75" value="Setuju">
+                                                <label class="custom-control-label" for="pertanyaan75">
+                                                    Setuju
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan76" value="Sangat Setuju">
+                                                <label class="custom-control-label" for="pertanyaan76">
+                                                    Sangat Setuju
+                                                </label>
+                                            </div>
+                                            <?php echo form_error('Jopsi11a') ?>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                            <label>Harapan Konsumen</label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan77" value="Tidak Penting">
+                                                <label class="custom-control-label" for="pertanyaan77">
+                                                    Tidak Penting
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan78" value="Kurang Penting">
+                                                <label class="custom-control-label" for="pertanyaan78">
+                                                    Kurang Penting
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan79" value="Penting">
+                                                <label class="custom-control-label" for="pertanyaan79">
+                                                    Penting
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan80" value="Sangat Penting">
+                                                <label class="custom-control-label" for="pertanyaan80">
+                                                    Sangat Penting
+                                                </label>
+                                            </div>
+                                            <?php echo form_error('Jopsi11b') ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <b class="info-box bg-success">E. Biaya atau tarif adalah tarif yang dikenakan kepada penerima layanan dalam mengurus dan/atau memperoleh pelayanan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi12a') ? 'has-error' : null ?> <?= form_error('Jopsi12b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">12. Bagaimana pendapat Saudara tentang biaya pelayanan jelas dan terbuka di Staklim Semarang</legend>
                                 <div class="row">
                                     <div class="col-md-6 ">
                                         <label>Kualitas Pelayanan</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan65" value="Tidak Setuju">
-                                            <label class="custom-control-label" for="pertanyaan65">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan81" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan81">
                                                 Tidak Setuju
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan66" value="Kurang Setuju">
-                                            <label class="custom-control-label" for="pertanyaan66">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan82" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan82">
                                                 Kurang Setuju
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan67" value="Setuju">
-                                            <label class="custom-control-label" for="pertanyaan67">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan83" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan83">
                                                 Setuju
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi10a" id="pertanyaan68" value="Sangat Setuju">
-                                            <label class="custom-control-label" for="pertanyaan68">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan84" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan84">
                                                 Sangat Setuju
                                             </label>
                                         </div>
+                                        <?php echo form_error('Jopsi12a') ?>
                                     </div>
                                     <div class="col-md-6 ">
                                         <label>Harapan Konsumen</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan69" value="Tidak Penting">
-                                            <label class="custom-control-label" for="pertanyaan69">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan85" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan85">
                                                 Tidak Penting
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan70" value="Kurang Penting">
-                                            <label class="custom-control-label" for="pertanyaan70">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan86" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan86">
                                                 Kurang Penting
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan71" value="Penting">
-                                            <label class="custom-control-label" for="pertanyaan71">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan87" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan87">
                                                 Penting
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi10b" id="pertanyaan72" value="Sangat Penting">
-                                            <label class="custom-control-label" for="pertanyaan72">
+                                            <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan88" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan88">
                                                 Sangat Penting
                                             </label>
                                         </div>
+                                        <?php echo form_error('Jopsi12b') ?>
                                     </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <div>
-                                <legend class="row col-sm-10">11. Bagaimana pendapat Saudara tentang Penyelesaian pelayanan sesuai target waktu di Staklim Semarang</legend>
+                            </fieldset>
+                            <b class="info-box bg-success">F. Produk spesifikasi jenis layanan adalah hasil pelayanan yang diberikan dan diterima sesuai dengan ketentuan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi13a') ? 'has-error' : null ?> <?= form_error('Jopsi13b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">13. Bagaimana pendapat Saudara tentang Informasi daftar produk/jasa layanan terbuka dan jelas di Staklim Semarang</legend>
                                 <div class="row">
                                     <div class="col-md-6 ">
                                         <label>Kualitas Pelayanan</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan73" value="Tidak Setuju">
-                                            <label class="custom-control-label" for="pertanyaan73">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan89" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan89">
                                                 Tidak Setuju
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan74" value="Kurang Setuju">
-                                            <label class="custom-control-label" for="pertanyaan74">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan90" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan90">
                                                 Kurang Setuju
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan75" value="Setuju">
-                                            <label class="custom-control-label" for="pertanyaan75">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan91" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan91">
                                                 Setuju
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi11a" id="pertanyaan76" value="Sangat Setuju">
-                                            <label class="custom-control-label" for="pertanyaan76">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan92" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan92">
                                                 Sangat Setuju
                                             </label>
                                         </div>
+                                        <?php echo form_error('Jopsi13a') ?>
                                     </div>
                                     <div class="col-md-6 ">
                                         <label>Harapan Konsumen</label>
                                         <div class="custom-control custom-radio">
-                                            <input required class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan77" value="Tidak Penting">
-                                            <label class="custom-control-label" for="pertanyaan77">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan149" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan149">
                                                 Tidak Penting
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan78" value="Kurang Penting">
-                                            <label class="custom-control-label" for="pertanyaan78">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan150" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan150">
                                                 Kurang Penting
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan79" value="Penting">
-                                            <label class="custom-control-label" for="pertanyaan79">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan151" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan151">
                                                 Penting
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="Jopsi11b" id="pertanyaan80" value="Sangat Penting">
-                                            <label class="custom-control-label" for="pertanyaan80">
+                                            <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan152" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan152">
                                                 Sangat Penting
                                             </label>
                                         </div>
+                                        <?php echo form_error('Jopsi13b') ?>
                                     </div>
                                 </div>
+                            </fieldset>
+                            <b class="info-box bg-success">G. Penanganan pengaduan, saran, dan masukan adalah mekanisme penanganan dan tindak lanjut terhadap pengaduan saran dan masukan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi14a') ? 'has-error' : null ?> <?= form_error('Jopsi14b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">14. Bagaimana pendapat Saudara tentang Sarana pengaduan/keluhan pelayanan publik tersedia di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan93" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan93">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan94" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan94">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan95" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan95">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan96" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan96">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi14a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan97" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan97">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan98" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan98">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan99" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan99">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan100" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan100">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi14b') ?>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group <?= form_error('Jopsi15a') ? 'has-error' : null ?> <?= form_error('Jopsi15b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">15. Bagaimana pendapat Saudara tentang Prosedur dan tindak lanjut penanganan pengaduan jelas di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan101" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan101">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan102" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan102">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan103" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan103">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan104" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan104">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi15a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan105" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan105">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan106" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan106">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan107" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan107">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan108" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan108">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi15b') ?>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <b class="info-box bg-success">H. Kriteria petugas/pelaksana layanan adalah keberadaan dan kepastian petugas yang memberikan pelayanan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi16a') ? 'has-error' : null ?> <?= form_error('Jopsi16b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">16. Bagaimana pendapat Saudara tentang keberadaan petugas jelas di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan109" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan109">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan110" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan110">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan111" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan111">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan112" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan112">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi16a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan113" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan113">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan114" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan114">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan115" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan115">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan116" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan116">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi16b') ?>
+                                    </div>
+                            </fieldset>
+                            <b class="info-box bg-success">I. Kompetensi pelaksana adalah kemampuan yang harus dimiliki oleh pelaksana meliputi pengetahuan, keahlian, keterampilan dan pengalaman</b>
+                            <fieldset class="form-group <?= form_error('Jopsi17a') ? 'has-error' : null ?> <?= form_error('Jopsi17b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">17. Bagaimana pendapat Saudara tentang Petugas sigap, ahli dan cekatan di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan117" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan117">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan118" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan118">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan119" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan119">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan120" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan120">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi17a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan121" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan121">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan122" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan122">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan123" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan123">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan124" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan124">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi17b') ?>
+                                    </div>
+                            </fieldset>
+                            <b class="info-box bg-success">J. Perilaku pelaksana adalah sikap petugas dalam memberikan pelayanan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi18a') ? 'has-error' : null ?> <?= form_error('Jopsi18b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">18. Bagaimana pendapat Saudara tentang Sikap dan perilaku petugas pelayanan baik dan bertanggungjawab di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan125" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan125">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan126" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan126">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan127" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan127">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan128" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan128">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi18a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan129" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan129">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan130" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan130">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan131" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan131">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan132" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan132">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi18b') ?>
+                                    </div>
+                            </fieldset>
+                            <b class="info-box bg-success">K. Keamanan dan kenyamanan sarana prasaran pelayanan yaitu terjaminnya tingkat keamanan dan kenyamanan sarana dan prasarana pelayanan</b>
+                            <fieldset class="form-group <?= form_error('Jopsi19a') ? 'has-error' : null ?> <?= form_error('Jopsi19b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">19. Bagaimana pendapat Saudara tentang Sarana dan prasarana pelayanan aman, nyaman dan mudah dijangkau di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan133" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan133">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan134" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan134">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan135" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan135">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan136" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan136">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi19a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan137" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan137">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan138" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan138">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan139" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan139">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan140" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan140">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi19b') ?>
+                                    </div>
+                            </fieldset>
+                            <b class="info-box bg-success">L. Komitmen penyelenggara layanan dalam pelayanan publik</b>
+                            <fieldset class="form-group <?= form_error('Jopsi20a') ? 'has-error' : null ?> <?= form_error('Jopsi20b') ? 'has-error' : null ?>">
+                                <legend class="row col-sm-10">20. Bagaimana pendapat Saudara tentang Pelayanan publik pada instansi ini sudah berjalan dengan baik di Staklim Semarang</legend>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <label>Kualitas Pelayanan</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan141" value="Tidak Setuju">
+                                            <label class="custom-control-label" for="pertanyaan141">
+                                                Tidak Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan142" value="Kurang Setuju">
+                                            <label class="custom-control-label" for="pertanyaan142">
+                                                Kurang Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan143" value="Setuju">
+                                            <label class="custom-control-label" for="pertanyaan143">
+                                                Setuju
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan144" value="Sangat Setuju">
+                                            <label class="custom-control-label" for="pertanyaan144">
+                                                Sangat Setuju
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi20a') ?>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <label>Harapan Konsumen</label>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan145" value="Tidak Penting">
+                                            <label class="custom-control-label" for="pertanyaan145">
+                                                Tidak Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan146" value="Kurang Penting">
+                                            <label class="custom-control-label" for="pertanyaan146">
+                                                Kurang Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan147" value="Penting">
+                                            <label class="custom-control-label" for="pertanyaan147">
+                                                Penting
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan148" value="Sangat Penting">
+                                            <label class="custom-control-label" for="pertanyaan148">
+                                                Sangat Penting
+                                            </label>
+                                        </div>
+                                        <?php echo form_error('Jopsi20b') ?>
+                                    </div>
+                            </fieldset>
+                            <br>
+                            <br>
+                            
+                            <div class="form-group row">
+                            <label for="Saran" class="col-sm-2 col-form-label">Saran: </label>
+                            <div class="col-sm-10">
+                                <textarea name="Saran" type="text" class="form-control" id="Saran" placeholder="Masukkan Saran Jika Ada" ></textarea>
                             </div>
-                        </fieldset>
-                        <b class="info-box bg-success">E. Biaya atau tarif adalah tarif yang dikenakan kepada penerima layanan dalam mengurus dan/atau memperoleh pelayanan</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">12. Bagaimana pendapat Saudara tentang biaya pelayanan jelas dan terbuka di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan81" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan81">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan82" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan82">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan83" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan83">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi12a" id="pertanyaan84" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan84">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan85" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan85">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan86" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan86">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan87" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan87">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi12b" id="pertanyaan88" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan88">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                        </fieldset>
-                        <b class="info-box bg-success">F. Produk spesifikasi jenis layanan adalah hasil pelayanan yang diberikan dan diterima sesuai dengan ketentuan</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">13. Bagaimana pendapat Saudara tentang Informasi daftar produk/jasa layanan terbuka dan jelas di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan89" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan89">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan90" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan90">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan91" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan91">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi13a" id="pertanyaan92" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan92">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan149" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan149">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan150" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan150">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan151" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan151">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi13b" id="pertanyaan152" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan152">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
                             </div>
-                        </fieldset>
-                        <b class="info-box bg-success">G. Penanganan pengaduan, saran, dan masukan adalah mekanisme penanganan dan tindak lanjut terhadap pengaduan saran dan masukan</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">14. Bagaimana pendapat Saudara tentang Sarana pengaduan/keluhan pelayanan publik tersedia di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan93" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan93">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan94" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan94">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan95" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan95">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi14a" id="pertanyaan96" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan96">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan97" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan97">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan98" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan98">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan99" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan99">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi14b" id="pertanyaan100" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan100">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class=" form-group">
+                                <button type="submit" id="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                                <!-- <a type="submit" id="submit" name="submit" value="submit" class="btn btn-primary">Submit</a> -->
                             </div>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">15. Bagaimana pendapat Saudara tentang Prosedur dan tindak lanjut penanganan pengaduan jelas di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan101" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan101">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan102" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan102">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan103" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan103">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi15a" id="pertanyaan104" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan104">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan105" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan105">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan106" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan106">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan107" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan107">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi15b" id="pertanyaan108" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan108">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <b class="info-box bg-success">H. Kriteria petugas/pelaksana layanan adalah keberadaan dan kepastian petugas yang memberikan pelayanan</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">16. Bagaimana pendapat Saudara tentang keberadaan petugas jelas di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan109" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan109">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan110" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan110">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan111" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan111">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi16a" id="pertanyaan112" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan112">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan113" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan113">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan114" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan114">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan115" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan115">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi16b" id="pertanyaan116" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan116">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                        </fieldset>
-                        <b class="info-box bg-success">I. Kompetensi pelaksana adalah kemampuan yang harus dimiliki oleh pelaksana meliputi pengetahuan, keahlian, keterampilan dan pengalaman</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">17. Bagaimana pendapat Saudara tentang Petugas sigap, ahli dan cekatan di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan117" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan117">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan118" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan118">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan119" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan119">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi17a" id="pertanyaan120" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan120">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan121" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan121">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan122" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan122">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan123" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan123">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi17b" id="pertanyaan124" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan124">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                        </fieldset>
-                        <b class="info-box bg-success">J. Perilaku pelaksana adalah sikap petugas dalam memberikan pelayanan</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">18. Bagaimana pendapat Saudara tentang Sikap dan perilaku petugas pelayanan baik dan bertanggungjawab di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan125" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan125">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan126" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan126">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan127" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan127">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi18a" id="pertanyaan128" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan128">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan129" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan129">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan130" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan130">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan131" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan131">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi18b" id="pertanyaan132" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan132">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                        </fieldset>
-                        <b class="info-box bg-success">K. Keamanan dan kenyamanan sarana prasaran pelayanan yaitu terjaminnya tingkat keamanan dan kenyamanan sarana dan prasarana pelayanan</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">19. Bagaimana pendapat Saudara tentang Sarana dan prasarana pelayanan aman, nyaman dan mudah dijangkau di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan133" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan133">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan134" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan134">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan135" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan135">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi19a" id="pertanyaan136" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan136">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan137" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan137">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan138" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan138">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan139" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan139">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi19b" id="pertanyaan140" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan140">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                        </fieldset>
-                        <b class="info-box bg-success">L. Komitmen penyelenggara layanan dalam pelayanan publik</b>
-                        <fieldset class="form-group">
-                            <legend class="row col-sm-10">20. Bagaimana pendapat Saudara tentang Pelayanan publik pada instansi ini sudah berjalan dengan baik di Staklim Semarang</legend>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <label>Kualitas Pelayanan</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan141" value="Tidak Setuju">
-                                        <label class="custom-control-label" for="pertanyaan141">
-                                            Tidak Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan142" value="Kurang Setuju">
-                                        <label class="custom-control-label" for="pertanyaan142">
-                                            Kurang Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan143" value="Setuju">
-                                        <label class="custom-control-label" for="pertanyaan143">
-                                            Setuju
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi20a" id="pertanyaan144" value="Sangat Setuju">
-                                        <label class="custom-control-label" for="pertanyaan144">
-                                            Sangat Setuju
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label>Harapan Konsumen</label>
-                                    <div class="custom-control custom-radio">
-                                        <input required class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan145" value="Tidak Penting">
-                                        <label class="custom-control-label" for="pertanyaan145">
-                                            Tidak Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan146" value="Kurang Penting">
-                                        <label class="custom-control-label" for="pertanyaan146">
-                                            Kurang Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan147" value="Penting">
-                                        <label class="custom-control-label" for="pertanyaan147">
-                                            Penting
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="Jopsi20b" id="pertanyaan148" value="Sangat Penting">
-                                        <label class="custom-control-label" for="pertanyaan148">
-                                            Sangat Penting
-                                        </label>
-                                    </div>
-                                </div>
-                        </fieldset>
-                        <div class=" form-group">
-                            <button type="submit" id="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
-                            <!-- <a type="submit" id="submit" name="submit" value="submit" class="btn btn-primary">Submit</a> -->
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     
 <?php

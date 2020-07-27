@@ -117,6 +117,10 @@
                 <h5>Jenis Pelayanan</h5>
                 <?php echo  $d->Pelayanan; ?>
             </div>
+            <div class="form-group">
+                <h5>Saran</h5>
+                <?php if($d->Saran == null){echo "tidak ada saran";} else { echo  $d->Saran; } ?>
+            </div>
         <?php } ?>
         <!-- /.card-body -->
     </div>

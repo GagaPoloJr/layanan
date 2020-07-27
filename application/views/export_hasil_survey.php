@@ -34,8 +34,8 @@
     <p align="center">
         LAPORAN HASIL SURVEY KEPUASAN MASYARAKAT
     </p>
-    <div style="font-size: 10px;">
-        <table class="table table-bordered">
+    <div style="font-size: 8px; overflow-x:auto;">
+        <table class="table table-bordered" style="width: 100%;">
             <tr>
                 <th>ID</th>
                 <th>Umur</th>
@@ -44,6 +44,7 @@
                 <th>Pekerjaan</th>
                 <th>Email</th>
                 <th>Jenis Pelayanan</th>
+                <th>Saran</th>
             </tr>
             <tbody>
                 <?php foreach ($data_responden as $d) :
@@ -56,6 +57,7 @@
                         <td><?php echo  $d->Pekerjaan; ?></td>
                         <td><?php echo  $d->Email; ?></td>
                         <td><?php echo  $d->Pelayanan; ?></td>
+                        <td><?php if($d->Saran == null){echo "tidak ada saran";} else { echo  $d->Saran; } ?> </td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

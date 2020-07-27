@@ -100,6 +100,7 @@
                     <th>Pekerjaan</th>
                     <th>Email</th>
                     <th>Jenis Pelayanan</th>
+                    <th>Saran</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -120,6 +121,7 @@
                         <td><?php echo  $d->Pekerjaan; ?></td>
                         <td><?php echo  $d->Email; ?></td>
                         <td><?php echo  $d->Pelayanan; ?></td>
+                        <td><?php if($d->Saran == null){echo "Tidak ada saran";} else { echo $d->Saran; }?></td>
                         <td>
                           <a href="<?php echo base_url() . 'admin/detail_responden/' . $d->ID ?>" class="btn btn-xs btn-block btn-info">Jawaban</a>
                           <a onclick="deleteConfirm('<?php echo base_url() . 'admin/hapus_responden/' . $d->ID ?>')" href="#!" class="btn btn-xs btn-block btn-danger">Hapus</a>
@@ -137,6 +139,7 @@
                     <th>Pekerjaan</th>
                     <th>Email</th>
                     <th>Jenis Pelayanan</th>
+                    <th>Saran</th>
                     <th>Aksi</th>
                   </tr>
                 </tfoot>

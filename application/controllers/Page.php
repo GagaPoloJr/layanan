@@ -36,55 +36,55 @@ class Page extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules('Email','Email','required|valid_email|trim');
         $validation->set_rules('Umur','Umur','required');
-        $validation->set_rules('Jenis_kelamin','Jenis_kelamin','required');
+        $validation->set_rules('Jenis_kelamin','Jenis kelamin','required');
         $validation->set_rules('Pendidikan','Pendidikan','required');
         $validation->set_rules('Pekerjaan','Pekerjaan','required');
-        $validation->set_rules('Pelayanan','Pelayanan','required');
+        // $validation->set_rules('Pelayanan','Pelayanan','required');
+        // $validation->set_rules('Saran','Saran','required');
+        $validation->set_rules('Jopsi1a','Jawaban 1','required');
+        $validation->set_rules('Jopsi2a','Jawaban 2','required');
+        $validation->set_rules('Jopsi3a','Jawaban 3','required');
+        $validation->set_rules('Jopsi4a','Jawaban 4','required');
+        $validation->set_rules('Jopsi5a','Jawaban 5','required');
+        $validation->set_rules('Jopsi6a','Jawaban 6','required');
+        $validation->set_rules('Jopsi7a','Jawaban 7','required');
+        $validation->set_rules('Jopsi8','Jawaban 8','required');
+        $validation->set_rules('Jopsi9','Jawaban 9','required');
+        $validation->set_rules('Jopsi10a','Jawaban 10','required');
+        $validation->set_rules('Jopsi11a','Jawaban 11','required');
+        $validation->set_rules('Jopsi12a','Jawaban 12','required');
+        $validation->set_rules('Jopsi13a','Jawaban 13','required');
+        $validation->set_rules('Jopsi14a','Jawaban 14','required');
+        $validation->set_rules('Jopsi15a','Jawaban 15','required');
+        $validation->set_rules('Jopsi16a','Jawaban 16','required');
+        $validation->set_rules('Jopsi17a','Jawaban 17','required');
+        $validation->set_rules('Jopsi18a','Jawaban 18','required');
+        $validation->set_rules('Jopsi19a','Jawaban 19','required');
+        $validation->set_rules('Jopsi20a','Jawaban 20','required');
+        $validation->set_rules('Jopsi1b','Jawaban 1','required');
+        $validation->set_rules('Jopsi2b','Jawaban 2','required');
+        $validation->set_rules('Jopsi3b','Jawaban 3','required');
+        $validation->set_rules('Jopsi4b','Jawaban 4','required');
+        $validation->set_rules('Jopsi5b','Jawaban 5','required');
+        $validation->set_rules('Jopsi6b','Jawaban 6','required');
+        $validation->set_rules('Jopsi7b','Jawaban 7','required');
+        $validation->set_rules('Jopsi10b','Jawaban 10','required');
+        $validation->set_rules('Jopsi11b','Jawaban 11','required');
+        $validation->set_rules('Jopsi12b','Jawaban 12','required');
+        $validation->set_rules('Jopsi13b','Jawaban 13','required');
+        $validation->set_rules('Jopsi14b','Jawaban 14','required');
+        $validation->set_rules('Jopsi15b','Jawaban 15','required');
+        $validation->set_rules('Jopsi16b','Jawaban 16','required');
+        $validation->set_rules('Jopsi17b','Jawaban 17','required');
+        $validation->set_rules('Jopsi18b','Jawaban 18','required');
+        $validation->set_rules('Jopsi19b','Jawaban 19','required');
+        $validation->set_rules('Jopsi20b','Jawaban 20','required');
+
         $validation->set_message('required', '%s masih kosong, silahkan isi');
         $validation->set_error_delimiters('<span class="help-block">', '</span>');
-        
-
-        $validation->set_rules('Jopsi1a','Jopsi1a','required');
-        $validation->set_rules('Jopsi2a','Jopsi2a','required');
-        $validation->set_rules('Jopsi3a','Jopsi3a','required');
-        $validation->set_rules('Jopsi4a','Jopsi4a','required');
-        $validation->set_rules('Jopsi5a','Jopsi5a','required');
-        $validation->set_rules('Jopsi6a','Jopsi6a','required');
-        $validation->set_rules('Jopsi7a','Jopsi7a','required');
-        $validation->set_rules('Jopsi8','Jopsi8','required');
-        $validation->set_rules('Jopsi9','Jopsi9','required');
-        $validation->set_rules('Jopsi10a','Jopsi10a','required');
-        $validation->set_rules('Jopsi11a','Jopsi11a','required');
-        $validation->set_rules('Jopsi12a','Jopsi12a','required');
-        $validation->set_rules('Jopsi13a','Jopsi13a','required');
-        $validation->set_rules('Jopsi14a','Jopsi14a','required');
-        $validation->set_rules('Jopsi15a','Jopsi15a','required');
-        $validation->set_rules('Jopsi16a','Jopsi16a','required');
-        $validation->set_rules('Jopsi17a','Jopsi17a','required');
-        $validation->set_rules('Jopsi18a','Jopsi18a','required');
-        $validation->set_rules('Jopsi19a','Jopsi19a','required');
-        $validation->set_rules('Jopsi20a','Jopsi20a','required');
-        $validation->set_rules('Jopsi1b','Jopsi1b','required');
-        $validation->set_rules('Jopsi2b','Jopsi2b','required');
-        $validation->set_rules('Jopsi3b','Jopsi3b','required');
-        $validation->set_rules('Jopsi4b','Jopsi4b','required');
-        $validation->set_rules('Jopsi5b','Jopsi5b','required');
-        $validation->set_rules('Jopsi6b','Jopsi6b','required');
-        $validation->set_rules('Jopsi7b','Jopsi7b','required');
-        $validation->set_rules('Jopsi10b','Jopsi10b','required');
-        $validation->set_rules('Jopsi11b','Jopsi11b','required');
-        $validation->set_rules('Jopsi12b','Jopsi12b','required');
-        $validation->set_rules('Jopsi13b','Jopsi13b','required');
-        $validation->set_rules('Jopsi14b','Jopsi14b','required');
-        $validation->set_rules('Jopsi15b','Jopsi15b','required');
-        $validation->set_rules('Jopsi16b','Jopsi16b','required');
-        $validation->set_rules('Jopsi17b','Jopsi17b','required');
-        $validation->set_rules('Jopsi18b','Jopsi18b','required');
-        $validation->set_rules('Jopsi19b','Jopsi19b','required');
-        $validation->set_rules('Jopsi20b','Jopsi20b','required');
 
         if($validation->run() == FALSE){
-            $this->session->set_flashdata('danger','Data Gagal Ditambahkan');
+            $this->session->set_flashdata('danger','Data Gagal Ditambahkan, Data Ada Yang Masih Kosong, Silahkan Diisi Ulang');
             $this->load->view("skm");
         } else {
         $email = $this->input->post('Email');
@@ -93,7 +93,9 @@ class Page extends CI_Controller
         $pendidikan = $this->input->post('Pendidikan');
         $pekerjaan = $this->input->post('Pekerjaan');
         $pelayanan = $this->input->post('Pelayanan');
+        $saran = $this->input->post('Saran');
         $data = array(
+            'Saran' => $saran,
             'Pelayanan' => implode(",", $pelayanan),
             'Pekerjaan' => $pekerjaan,
             'Pendidikan' => $pendidikan,

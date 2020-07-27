@@ -105,6 +105,10 @@
                         <h5>Jenis Pelayanan</h5>
                         <input type="text" name="first_name" value="<?php echo  $d->Pelayanan; ?>" required class="form-control" disabled="">
                       </div>
+                      <div class="form-group">
+                        <h5>Saran</h5>
+                        <input type="text" name="first_name" value="<?php if($d->Saran == null){echo "tidak ada saran";} else { echo  $d->Saran; }?>" required class="form-control" disabled="">
+                      </div>
                     <?php } ?>
                     <!-- /.card-body -->
                   </div>
