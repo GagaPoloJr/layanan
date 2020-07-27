@@ -30,11 +30,63 @@ class Page extends CI_Controller
         $this->load->view('test');
     }
     //data berbayar
-
     public function tambah_responden()
     {
 
+        $validation = $this->form_validation;
+        $validation->set_rules('Email','Email','required|valid_email|trim');
+        $validation->set_rules('Umur','Umur','required');
+        $validation->set_rules('Jenis_kelamin','Jenis_kelamin','required');
+        $validation->set_rules('Pendidikan','Pendidikan','required');
+        $validation->set_rules('Pekerjaan','Pekerjaan','required');
+        $validation->set_rules('Pelayanan','Pelayanan','required');
+        $validation->set_message('required', '%s masih kosong, silahkan isi');
+        $validation->set_error_delimiters('<span class="help-block">', '</span>');
+        
 
+        $validation->set_rules('Jopsi1a','Jopsi1a','required');
+        $validation->set_rules('Jopsi2a','Jopsi2a','required');
+        $validation->set_rules('Jopsi3a','Jopsi3a','required');
+        $validation->set_rules('Jopsi4a','Jopsi4a','required');
+        $validation->set_rules('Jopsi5a','Jopsi5a','required');
+        $validation->set_rules('Jopsi6a','Jopsi6a','required');
+        $validation->set_rules('Jopsi7a','Jopsi7a','required');
+        $validation->set_rules('Jopsi8','Jopsi8','required');
+        $validation->set_rules('Jopsi9','Jopsi9','required');
+        $validation->set_rules('Jopsi10a','Jopsi10a','required');
+        $validation->set_rules('Jopsi11a','Jopsi11a','required');
+        $validation->set_rules('Jopsi12a','Jopsi12a','required');
+        $validation->set_rules('Jopsi13a','Jopsi13a','required');
+        $validation->set_rules('Jopsi14a','Jopsi14a','required');
+        $validation->set_rules('Jopsi15a','Jopsi15a','required');
+        $validation->set_rules('Jopsi16a','Jopsi16a','required');
+        $validation->set_rules('Jopsi17a','Jopsi17a','required');
+        $validation->set_rules('Jopsi18a','Jopsi18a','required');
+        $validation->set_rules('Jopsi19a','Jopsi19a','required');
+        $validation->set_rules('Jopsi20a','Jopsi20a','required');
+        $validation->set_rules('Jopsi1b','Jopsi1b','required');
+        $validation->set_rules('Jopsi2b','Jopsi2b','required');
+        $validation->set_rules('Jopsi3b','Jopsi3b','required');
+        $validation->set_rules('Jopsi4b','Jopsi4b','required');
+        $validation->set_rules('Jopsi5b','Jopsi5b','required');
+        $validation->set_rules('Jopsi6b','Jopsi6b','required');
+        $validation->set_rules('Jopsi7b','Jopsi7b','required');
+        $validation->set_rules('Jopsi10b','Jopsi10b','required');
+        $validation->set_rules('Jopsi11b','Jopsi11b','required');
+        $validation->set_rules('Jopsi12b','Jopsi12b','required');
+        $validation->set_rules('Jopsi13b','Jopsi13b','required');
+        $validation->set_rules('Jopsi14b','Jopsi14b','required');
+        $validation->set_rules('Jopsi15b','Jopsi15b','required');
+        $validation->set_rules('Jopsi16b','Jopsi16b','required');
+        $validation->set_rules('Jopsi17b','Jopsi17b','required');
+        $validation->set_rules('Jopsi18b','Jopsi18b','required');
+        $validation->set_rules('Jopsi19b','Jopsi19b','required');
+        $validation->set_rules('Jopsi20b','Jopsi20b','required');
+
+        if($validation->run() == FALSE){
+            $this->session->set_flashdata('danger','Data Gagal Ditambahkan');
+            $this->load->view("skm");
+        } else {
         $email = $this->input->post('Email');
         $umur = $this->input->post('Umur');
         $jeniskelamin = $this->input->post('Jenis_kelamin');
@@ -49,8 +101,6 @@ class Page extends CI_Controller
             'Umur' => $umur,
             'Email' => $email,
         );
-        $this->modelresponden->insert_data($data, 'data_responden');
-
         $jopsi1a = $this->input->post('Jopsi1a');
         $jopsi2a = $this->input->post('Jopsi2a');
         $jopsi3a = $this->input->post('Jopsi3a');
@@ -128,14 +178,122 @@ class Page extends CI_Controller
             'Jopsi18b' => $jopsi18b,
             'Jopsi19b' => $jopsi19b,
             'Jopsi20b' => $jopsi20b,
-
-
         );
+        $this->modelresponden->insert_data($data, 'data_responden');
         $this->modelresponden->insert_data($jawaban, 'jawaban');
-
+        $this->session->set_flashdata('flash','Respond berhasil ditambahkan, terima kasih telah mengisi');
         redirect(base_url());
+        };
+
+
         // $this->load->view('skm');
     }
+
+    // public function tambah_responden()
+    // {
+
+
+    //     $email = $this->input->post('Email');
+    //     $umur = $this->input->post('Umur');
+    //     $jeniskelamin = $this->input->post('Jenis_kelamin');
+    //     $pendidikan = $this->input->post('Pendidikan');
+    //     $pekerjaan = $this->input->post('Pekerjaan');
+    //     $pelayanan = $this->input->post('Pelayanan');
+    //     $data = array(
+    //         'Pelayanan' => implode(",", $pelayanan),
+    //         'Pekerjaan' => $pekerjaan,
+    //         'Pendidikan' => $pendidikan,
+    //         'Jenis_kelamin' => $jeniskelamin,
+    //         'Umur' => $umur,
+    //         'Email' => $email,
+    //     );
+    //     $this->modelresponden->insert_data($data, 'data_responden');
+
+    //     $jopsi1a = $this->input->post('Jopsi1a');
+    //     $jopsi2a = $this->input->post('Jopsi2a');
+    //     $jopsi3a = $this->input->post('Jopsi3a');
+    //     $jopsi4a = $this->input->post('Jopsi4a');
+    //     $jopsi5a = $this->input->post('Jopsi5a');
+    //     $jopsi6a = $this->input->post('Jopsi6a');
+    //     $jopsi7a = $this->input->post('Jopsi7a');
+    //     $jopsi8 = $this->input->post('Jopsi8');
+    //     $jopsi9 = $this->input->post('Jopsi9');
+    //     $jopsi10a = $this->input->post('Jopsi10a');
+    //     $jopsi11a = $this->input->post('Jopsi11a');
+    //     $jopsi12a = $this->input->post('Jopsi12a');
+    //     $jopsi13a = $this->input->post('Jopsi13a');
+    //     $jopsi14a = $this->input->post('Jopsi14a');
+    //     $jopsi15a = $this->input->post('Jopsi15a');
+    //     $jopsi16a = $this->input->post('Jopsi16a');
+    //     $jopsi17a = $this->input->post('Jopsi17a');
+    //     $jopsi18a = $this->input->post('Jopsi18a');
+    //     $jopsi19a = $this->input->post('Jopsi19a');
+    //     $jopsi20a = $this->input->post('Jopsi20a');
+    //     $jopsi1b = $this->input->post('Jopsi1b');
+    //     $jopsi2b = $this->input->post('Jopsi2b');
+    //     $jopsi3b = $this->input->post('Jopsi3b');
+    //     $jopsi4b = $this->input->post('Jopsi4b');
+    //     $jopsi5b = $this->input->post('Jopsi5b');
+    //     $jopsi6b = $this->input->post('Jopsi6b');
+    //     $jopsi7b = $this->input->post('Jopsi7b');
+    //     $jopsi10b = $this->input->post('Jopsi10b');
+    //     $jopsi11b = $this->input->post('Jopsi11b');
+    //     $jopsi12b = $this->input->post('Jopsi12b');
+    //     $jopsi13b = $this->input->post('Jopsi13b');
+    //     $jopsi14b = $this->input->post('Jopsi14b');
+    //     $jopsi15b = $this->input->post('Jopsi15b');
+    //     $jopsi16b = $this->input->post('Jopsi16b');
+    //     $jopsi17b = $this->input->post('Jopsi17b');
+    //     $jopsi18b = $this->input->post('Jopsi18b');
+    //     $jopsi19b = $this->input->post('Jopsi19b');
+    //     $jopsi20b = $this->input->post('Jopsi20b');
+    //     $jawaban = array(
+    //         'Jopsi1a' => $jopsi1a,
+    //         'Jopsi2a' => $jopsi2a,
+    //         'Jopsi3a' => $jopsi3a,
+    //         'Jopsi4a' => $jopsi4a,
+    //         'Jopsi5a' => $jopsi5a,
+    //         'Jopsi6a' => $jopsi6a,
+    //         'Jopsi7a' => $jopsi7a,
+    //         'Jopsi8' => $jopsi8,
+    //         'Jopsi9' => $jopsi9,
+    //         'Jopsi10a' => $jopsi10a,
+    //         'Jopsi11a' => $jopsi11a,
+    //         'Jopsi12a' => $jopsi12a,
+    //         'Jopsi13a' => $jopsi13a,
+    //         'Jopsi14a' => $jopsi14a,
+    //         'Jopsi15a' => $jopsi15a,
+    //         'Jopsi16a' => $jopsi16a,
+    //         'Jopsi17a' => $jopsi17a,
+    //         'Jopsi18a' => $jopsi18a,
+    //         'Jopsi19a' => $jopsi19a,
+    //         'Jopsi20a' => $jopsi20a,
+    //         'Jopsi1b' => $jopsi1b,
+    //         'Jopsi2b' => $jopsi2b,
+    //         'Jopsi3b' => $jopsi3b,
+    //         'Jopsi4b' => $jopsi4b,
+    //         'Jopsi5b' => $jopsi5b,
+    //         'Jopsi6b' => $jopsi6b,
+    //         'Jopsi7b' => $jopsi7b,
+    //         'Jopsi10b' => $jopsi10b,
+    //         'Jopsi11b' => $jopsi11b,
+    //         'Jopsi12b' => $jopsi12b,
+    //         'Jopsi13b' => $jopsi13b,
+    //         'Jopsi14b' => $jopsi14b,
+    //         'Jopsi15b' => $jopsi15b,
+    //         'Jopsi16b' => $jopsi16b,
+    //         'Jopsi17b' => $jopsi17b,
+    //         'Jopsi18b' => $jopsi18b,
+    //         'Jopsi19b' => $jopsi19b,
+    //         'Jopsi20b' => $jopsi20b,
+
+
+    //     );
+    //     $this->modelresponden->insert_data($jawaban, 'jawaban');
+
+    //     redirect(base_url());
+    //     // $this->load->view('skm');
+    // }
 
     public function form()
     {

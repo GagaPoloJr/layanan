@@ -69,7 +69,7 @@
                         <div class="form-group row <?= form_error('Email') ? 'has-error' : null ?>">
                             <label for="InputEmail" class="col-sm-2 col-form-label">Alamat Email: *</label>
                             <div class="col-sm-10">
-                                <input name="Email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Masukkan email" required>
+                                <input name="Email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Masukkan email">
                                 <small id="emailHelp" class="form-text text-muted">Kami tidak akan pernah memberikan email anda kepada siapapun</small>
                                 <?php echo form_error('Email') ?>
                             </div>
